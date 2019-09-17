@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   internal(){
-    console.log("indter")
+    console.log("internal")
     var dataset={
       mystate:this.state.status,
       action:"internal"
@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   forward(){
-    console.log("forss")
+    console.log("forward")
     var dataset={
       mystate:this.state.status,
       action:"forward"
@@ -45,7 +45,7 @@ class App extends React.Component {
 
   TriggerApi(dataset){
     console.log(dataset)
-    
+
   }
 
   render() {
