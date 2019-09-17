@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Table, thead, th, tr, tbody, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 class App extends React.Component {
 
@@ -14,37 +15,52 @@ class App extends React.Component {
     this.backward = this.backward.bind(this);
     this.internal = this.internal.bind(this);
     this.forward = this.forward.bind(this);
+    this.TriggerApi = this.TriggerApi.bind(this);
+    this.handleChangeStatus = this.handleChangeStatus.bind(this);
   }
 
-  backward(){
+  handleChangeStatus(newstatus) {
+    this.setState({ status: newstatus });
+  }
+
+  backward() {
     console.log("backward")
-    var dataset={
-      mystate:this.state.status,
-      action:"backward"
+    var dataset = {
+      mystate: this.state.status,
+      action: "backward"
     }
     this.TriggerApi(dataset)
   }
 
-  internal(){
+  internal() {
     console.log("internal")
-    var dataset={
-      mystate:this.state.status,
-      action:"internal"
+    var dataset = {
+      mystate: this.state.status,
+      action: "internalforward"
     }
     this.TriggerApi(dataset)
   }
 
-  forward(){
+  forward() {
     console.log("forward")
-    var dataset={
-      mystate:this.state.status,
-      action:"forward"
+    var dataset = {
+      mystate: this.state.status,
+      action: "forward"
     }
-    this.TriggerApi(dataset)
+    var res = this.TriggerApi(dataset)
+    console.log(res);
   }
 
-  TriggerApi(dataset){
+  TriggerApi(dataset) {
     console.log(dataset)
+
+    axios.post('http://localhost:5000/api/comState', dataset)
+      .then((response) => {
+        this.setState({ status: response.data._newState });
+       })
+      .catch(function (error) {
+        console.log(error);
+      })
 
   }
 
