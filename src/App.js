@@ -52,7 +52,11 @@ class App extends React.Component {
 
     axios.post('http://localhost:5000/api/comState', dataset)
       .then((response) => {
+        if(response.data._newState==="error"){
+          window.alert("Wrong Movement")
+        }else{
         this.setState({ status: response.data._newState });
+        }
        })
       .catch(function (error) {
         console.log(error);
