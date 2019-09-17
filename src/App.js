@@ -16,12 +16,8 @@ class App extends React.Component {
     this.internal = this.internal.bind(this);
     this.forward = this.forward.bind(this);
     this.TriggerApi = this.TriggerApi.bind(this);
-    this.handleChangeStatus = this.handleChangeStatus.bind(this);
   }
 
-  handleChangeStatus(newstatus) {
-    this.setState({ status: newstatus });
-  }
 
   backward() {
     console.log("backward")
