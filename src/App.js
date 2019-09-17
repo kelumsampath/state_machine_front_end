@@ -65,6 +65,7 @@ class App extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="heading">
         <Table striped bordered hover>
@@ -78,7 +79,8 @@ class App extends React.Component {
           <tbody>
             <tr>
               <td>
-                <Card className="card">
+              {this.state.status==="New" ?(
+                  <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
                   <h4>Status:  {this.state.status}</h4>
@@ -88,19 +90,43 @@ class App extends React.Component {
                     <button onClick={this.forward}>Forward</button>
                   </div>
                 </Card>
+                ):(
+                  <h4>Empty</h4>
+                )}
 
               </td>
               <td>
-                <Card className="card">
+                {this.state.status==="Waiting"||this.state.status==="Process"||this.state.status==="Finished" ?(
+                  <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
+                  <h4>Status:  {this.state.status}</h4>
+                  <div>
+                    <button onClick={this.backward} >backward</button>
+                    <button onClick={this.internal}>Internal</button>
+                    <button onClick={this.forward}>Forward</button>
+                  </div>
                 </Card>
+                ):(
+                  <h4>Empty</h4>
+                )}
+              
               </td>
               <td>
-                <Card className="card">
+              {this.state.status==="Rejected"||this.state.status==="Success" ?(
+                  <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
+                  <h4>Status:  {this.state.status}</h4>
+                  <div>
+                    <button onClick={this.backward} >backward</button>
+                    <button onClick={this.internal}>Internal</button>
+                    <button onClick={this.forward}>Forward</button>
+                  </div>
                 </Card>
+                ):(
+                  <h4>Empty</h4>
+                )}
               </td>
             </tr>
           </tbody>
