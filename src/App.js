@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: "New"
+      status: "0"
     };
 
     this.backward = this.backward.bind(this);
@@ -79,7 +79,7 @@ class App extends React.Component {
           <tbody>
             <tr>
               <td>
-              {this.state.status==="New" ?(
+              {this.state.status==="0" ?(
                   <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
@@ -96,7 +96,7 @@ class App extends React.Component {
 
               </td>
               <td>
-                {this.state.status==="Waiting"||this.state.status==="Process"||this.state.status==="Finished" ?(
+                {this.state.status==="1"||this.state.status==="2"||this.state.status==="3" ?(
                   <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
@@ -113,7 +113,7 @@ class App extends React.Component {
               
               </td>
               <td>
-              {this.state.status==="Rejected"||this.state.status==="Success" ?(
+              {this.state.status==="4"||this.state.status==="5" ?(
                   <Card className="card">
                   <h3>Complain</h3>
                   <p>A text can be any example of written or spoken language, from something as complex as a book or legal document to something as simple as the body of an email or the words on the back of a cereal box.</p>
